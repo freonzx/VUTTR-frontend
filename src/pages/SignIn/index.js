@@ -1,10 +1,19 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import Logo from '../../assets/images/Logo.svg'
 
 const index = () => {
   return (
-    <div>
-      <h1>Login</h1>
-    </div>
+    <>
+      <img src={Logo} alt='logo' />
+      <form>
+        <input type='email' placeholder='Email' />
+        <input type='password' placeholder='Password' />
+
+        <button type='submit'>Login</button>
+        <Link to='/register'>Criar conta</Link>
+      </form>
+    </>
   )
 }
 
