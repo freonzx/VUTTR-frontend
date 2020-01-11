@@ -1,12 +1,18 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Form, Input } from '@rocketseat/unform'
-import * as Yup from 'yup'
-import Logo from '../../assets/images/Logo.svg'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Form, Input } from '@rocketseat/unform';
+import * as Yup from 'yup';
+import Logo from '../../assets/images/Logo.svg';
 
-const index = () => {
-  function handleSubmit(data) {
-    console.tron.log(data)
+import { signInRequest } from '../../store/modules/auth/actions';
+
+export default function SignIn() {
+  const dispatch = useDispatch();
+
+  function handleSubmit({ email, password }) {
+    // console.tron.log(data);
+    dispatch(signInRequest(email, password));
   }
 
   const schema = Yup.object().shape({
@@ -16,7 +22,7 @@ const index = () => {
     password: Yup.string()
       .min(6)
       .required('* Senha obrigatória'),
-  })
+  });
 
   return (
     <>
@@ -29,7 +35,5 @@ const index = () => {
         <Link to='/register'>Criar conta</Link>
       </Form>
     </>
-  )
+  );
 }
-
-export default index

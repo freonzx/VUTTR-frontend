@@ -1,12 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Form, Input } from '@rocketseat/unform'
-import * as Yup from 'yup'
-import Logo from '../../assets/images/Logo.svg'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Form, Input } from '@rocketseat/unform';
+import * as Yup from 'yup';
+import Logo from '../../assets/images/Logo.svg';
 
-const index = () => {
+export default function SignUp() {
   function handleSubmit(data) {
-    console.tron.log(data)
+    console.tron.log(data);
   }
 
   const schema = Yup.object().shape({
@@ -17,7 +17,7 @@ const index = () => {
       .min(6, '* Senha precisa conter no minimo 6 caracteres')
       .required('* Senha obrigatória'),
     name: Yup.string().required('* Insira seu nome completo'),
-  })
+  });
 
   return (
     <>
@@ -31,7 +31,5 @@ const index = () => {
         <Link to='/login'>Já tenho conta</Link>
       </Form>
     </>
-  )
+  );
 }
-
-export default index
