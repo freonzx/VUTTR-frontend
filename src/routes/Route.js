@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import AuthLayout from '../styles/auth/index';
 import DefaultLayout from '../styles/default/index';
 
-import store from '../store';
+import { store } from '../store';
 
 export default function RouteWrapper({
   component: Component,
