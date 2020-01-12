@@ -69,8 +69,7 @@ function* deleteToolRequest(action) {
     yield put(successTools(data));
     toast.info('Ferramenta deletada');
   } catch {
-    yield put(failTools());
-    toast.error('Erro na API, tente novamente mais tarde');
+    toast.error('Você não possui permissão');
   }
 }
 

@@ -19,6 +19,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(requestTools());
+    // eslint-disable-next-line
   }, []);
 
   function handleModal() {

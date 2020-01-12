@@ -5,7 +5,6 @@ import api from '../../../services/api';
 import history from '../../../services/history';
 
 import { signInSuccess, signFailure } from './actions';
-import auth from './reducer';
 
 export function* signIn({ payload }) {
   try {
