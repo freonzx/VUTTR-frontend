@@ -44,9 +44,14 @@ export const Content = styled.div`
 export const Profile = styled.div`
   svg {
     margin: 0 5px 0 25px;
+    align-self: center;
   }
 
-  a {
+  button {
+    display: flex;
+    outline: 0;
+    border: 0;
+    background: #fff;
     color: #333;
     font-size: 18px;
     font-weight: bold;

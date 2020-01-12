@@ -2,11 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaSignOutAlt } from 'react-icons/fa';
 
+import { useDispatch } from 'react-redux';
 import Logo from '../../assets/images/Logo.svg';
 
 import { Container, Content, Profile } from './styles';
+import { signOut } from '../../store/modules/auth/actions';
 
-const Header = () => {
+export default function Header() {
+  const dispatch = useDispatch();
+
+  function handleSignOut() {
+    dispatch(signOut());
+  }
+
   return (
     <Container>
       <Content>
@@ -18,16 +26,14 @@ const Header = () => {
         <aside>
           <Profile>
             <div>
-              <Link to='#'>
+              <button type='button' onClick={handleSignOut}>
                 <FaSignOutAlt />
                 Logout
-              </Link>
+              </button>
             </div>
           </Profile>
         </aside>
       </Content>
     </Container>
   );
-};
-
-export default Header;
+}
