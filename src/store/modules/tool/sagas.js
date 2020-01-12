@@ -46,8 +46,23 @@ function* SearchByTagsRequest({ string }) {
   }
 }
 
+function* createToolRequest(action) {
+  try {
+    yield call(api.post, `/tools`, action.payload);
+
+    const { data } = yield call(api.get, `/tools`);
+
+    yield put(successTools(data));
+    toast.info('Ferramenta adicionada');
+  } catch {
+    yield put(failTools());
+    toast.error('Erro na API, tente novamente mais tarde');
+  }
+}
+
 export default all([
   takeLatest('@tool/REQUEST_TOOLS', ToolsRequest),
   takeLatest('@tool/SEARCH_TOOL_BY_DESC', SearchByDescRequest),
   takeLatest('@tool/SEARCH_TOOL_BY_TAGS', SearchByTagsRequest),
+  takeLatest('@tool/CREATE_TOOL_REQUEST', createToolRequest),
 ]);

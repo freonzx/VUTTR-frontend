@@ -30,3 +30,10 @@ export function searchToolByDesc(string) {
     string,
   };
 }
+
+export function createTool(payload) {
+  return {
+    type: '@tool/CREATE_TOOL_REQUEST',
+    payload,
+  };
+}
