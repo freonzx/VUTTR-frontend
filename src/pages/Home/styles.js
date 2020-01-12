@@ -49,7 +49,8 @@ export const SearchBar = styled.div`
     padding: 5px 15px 5px 25px;
 
     &:focus {
-      background: #ebeaed 0% 0% no-repeat padding-box;
+      background: #ebeaed url(${SearchIcon}) 5px no-repeat;
+      background-size: 15px 15px;
       border: 1px solid #dedce1;
       border-radius: 5px;
       opacity: 1;

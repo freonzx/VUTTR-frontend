@@ -19,13 +19,20 @@ export const Container = styled.div`
   }
 
   p {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
 
   a {
     font-size: 26px;
     text-decoration: none;
     color: #000;
+  }
+
+  strong {
+    background: #eee;
+    border-radius: 50px;
+    padding: 2px 4px;
+    margin-right: 8px;
   }
 
   button {

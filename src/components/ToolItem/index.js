@@ -2,23 +2,23 @@ import React from 'react';
 import { MdDeleteForever } from 'react-icons/md';
 import { Container } from './styles';
 
-export default function ToolItem() {
+export default function ToolItem({ data }) {
   return (
     <Container>
       <header>
-        <a href='#'>Titulo</a>
+        <a href={data.link}>{data.title}</a>
         <button type='button'>
           <MdDeleteForever size={22} /> Remove
         </button>
       </header>
 
-      <p>Description</p>
+      <p>{data.description}</p>
 
       <footer>
         <strong> #tags</strong>
-        <strong> #tags</strong>
-        <strong> #tags</strong>
-        <strong> #tags</strong>
+        {data.tags.map(tag => {
+          return <strong> #{tag}</strong>;
+        })}
       </footer>
     </Container>
   );

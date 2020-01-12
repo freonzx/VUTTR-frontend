@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaTools } from 'react-icons/fa';
-import { Container, Card, SearchBar } from './styles';
+import { useDispatch, useSelector } from 'react-redux';
+import { Container, SearchBar } from './styles';
 import ToolItem from '../../components/ToolItem';
+import { requestTools } from '../../store/modules/tool/actions';
 
 export default function Home() {
+  const dispatch = useDispatch();
+  const { tools } = useSelector(state => state.tool);
+
+  useEffect(() => {
+    dispatch(requestTools());
+  }, []);
+
   return (
     <Container>
       <header>
@@ -25,12 +34,11 @@ export default function Home() {
           New Tool
         </button>
       </SearchBar>
-      <ToolItem />
-      <ToolItem />
-      <ToolItem />
-      <ToolItem />
-      <ToolItem />
-      <ToolItem />
+      {tools ? (
+        tools.map(tool => <ToolItem key={tool.id} data={tool} />)
+      ) : (
+        <p>Loading</p>
+      )}
     </Container>
   );
 }
