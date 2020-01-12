@@ -20,7 +20,7 @@ export default function Header() {
       <Content>
         <nav>
           <img src={Logo} alt='bossa logo' />
-          <Link to='/'>VUTR</Link>
+          <Link to='/'>VUTTR</Link>
         </nav>
 
         <aside>
