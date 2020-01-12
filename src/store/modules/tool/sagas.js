@@ -60,9 +60,24 @@ function* createToolRequest(action) {
   }
 }
 
+function* deleteToolRequest(action) {
+  try {
+    yield call(api.delete, `/tools/${action.payload}`);
+
+    const { data } = yield call(api.get, `/tools`);
+
+    yield put(successTools(data));
+    toast.info('Ferramenta deletada');
+  } catch {
+    yield put(failTools());
+    toast.error('Erro na API, tente novamente mais tarde');
+  }
+}
+
 export default all([
   takeLatest('@tool/REQUEST_TOOLS', ToolsRequest),
   takeLatest('@tool/SEARCH_TOOL_BY_DESC', SearchByDescRequest),
   takeLatest('@tool/SEARCH_TOOL_BY_TAGS', SearchByTagsRequest),
   takeLatest('@tool/CREATE_TOOL_REQUEST', createToolRequest),
+  takeLatest('@tool/DELETE_TOOL_REQUEST', deleteToolRequest),
 ]);

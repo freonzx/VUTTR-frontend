@@ -37,3 +37,10 @@ export function createTool(payload) {
     payload,
   };
 }
+
+export function deleteTool(payload) {
+  return {
+    type: '@tool/DELETE_TOOL_REQUEST',
+    payload,
+  };
+}
