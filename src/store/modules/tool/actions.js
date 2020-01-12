@@ -16,3 +16,17 @@ export function failTools() {
     type: '@tool/REQUEST_FAIL',
   };
 }
+
+export function searchToolByTags(string) {
+  return {
+    type: '@tool/SEARCH_TOOL_BY_TAGS',
+    string,
+  };
+}
+
+export function searchToolByDesc(string) {
+  return {
+    type: '@tool/SEARCH_TOOL_BY_DESC',
+    string,
+  };
+}
