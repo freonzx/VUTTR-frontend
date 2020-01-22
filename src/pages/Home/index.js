@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaTools } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { Container, SearchBar } from './styles';
+import { Container, SearchBar, LoadSpinner } from './styles';
 import ReactModal from '../../components/Modal';
 import ToolForm from '../../components/ToolForm';
 import ToolItem from '../../components/ToolItem';
@@ -55,7 +55,7 @@ export default function Home() {
       {tools ? (
         tools.map(tool => <ToolItem key={tool.id} data={tool} />)
       ) : (
-        <p>Loading</p>
+        <LoadSpinner size={32} color='#333' />
       )}
 
       <ReactModal open={modal} handleModal={handleModal} label='Form add'>

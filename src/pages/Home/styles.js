@@ -1,7 +1,18 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { darken } from 'polished';
+import { FaSpinner } from 'react-icons/fa';
 
 import SearchIcon from '../../assets/images/iconsearch.svg';
+
+const rotate = keyframes`
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -62,11 +73,6 @@ export const SearchBar = styled.div`
     align-items: center;
     padding: 5px 10px;
 
-    /*input[type='checkbox'] {
-      margin-right: 2px;
-      transform: scale(1.2);
-    }*/
-
     input[type='checkbox'] {
       margin: 0 5px;
       width: 40px;
@@ -122,4 +128,11 @@ export const SearchBar = styled.div`
       background: ${darken(0.1, '#6554c0')};
     }
   }
+`;
+
+export const LoadSpinner = styled(FaSpinner)`
+  display: flex;
+  align-self: center;
+  margin-top: 20px;
+  animation: ${rotate} 2s linear infinite;
 `;
