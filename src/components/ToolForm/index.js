@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 
 import { Container } from './styles';
@@ -47,6 +48,10 @@ const FormAdd = ({ handleModal }) => {
       </Form>
     </Container>
   );
+};
+
+FormAdd.propTypes = {
+  handleModal: PropTypes.func.isRequired,
 };
 
 export default FormAdd;

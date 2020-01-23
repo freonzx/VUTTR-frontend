@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { MdDeleteForever } from 'react-icons/md';
+import PropTypes from 'prop-types';
 import Modal from '../Modal';
 import { Container, RemoveModal } from './styles';
 import { deleteTool } from '../../store/modules/tool/actions';
@@ -27,7 +28,7 @@ export default function ToolItem({ data }) {
         <button
           type='button'
           data-testid='remove-btn'
-          onClick={e => setModal(!modal)}
+          onClick={() => setModal(!modal)}
         >
           <MdDeleteForever size={22} /> Remove
         </button>
@@ -68,3 +69,13 @@ export default function ToolItem({ data }) {
     </Container>
   );
 }
+
+ToolItem.propTypes = {
+  data: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    tags: PropTypes.array.isRequired,
+  }).isRequired,
+};

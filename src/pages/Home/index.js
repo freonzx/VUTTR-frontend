@@ -53,7 +53,7 @@ export default function Home() {
         </button>
       </SearchBar>
       {tools ? (
-        tools.map(tool => <ToolItem key={tool.id} data={tool} />)
+        tools.map(tool => <ToolItem key={tool._id} data={tool} />)
       ) : (
         <LoadSpinner size={32} color='#333' />
       )}
