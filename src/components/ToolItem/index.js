@@ -21,32 +21,44 @@ export default function ToolItem({ data }) {
   return (
     <Container>
       <header>
-        <a href={data.link}>{data.title}</a>
-        <button type='button' onClick={e => setModal(!modal)}>
+        <a href={data.link} data-testid='link-title'>
+          {data.title}
+        </a>
+        <button
+          type='button'
+          data-testid='remove-btn'
+          onClick={e => setModal(!modal)}
+        >
           <MdDeleteForever size={22} /> Remove
         </button>
       </header>
 
-      <p>{data.description}</p>
+      <p data-testid='tool-desc'>{data.description}</p>
 
       <footer>
         {data.tags.map(tag => {
-          return <strong> #{tag}</strong>;
+          return <strong key={tag}> #{tag}</strong>;
         })}
       </footer>
 
       <Modal open={modal} handleModal={handleModal} label='remove'>
-        <RemoveModal>
+        <RemoveModal data-testid='remove-modal'>
           <h2>Remove Tool</h2>
           <p>Are you sure you want to remove {data.title}? </p>
           <div>
-            <button type='button' id='cancel' onClick={handleModal}>
+            <button
+              type='button'
+              id='cancel'
+              onClick={handleModal}
+              data-testid='cancel-btn'
+            >
               Cancel
             </button>
             <button
               type='button'
               id='yes'
               onClick={() => handleDelete(data._id)}
+              data-testid='yes-btn'
             >
               Yes
             </button>
