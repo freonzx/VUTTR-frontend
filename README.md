@@ -4,6 +4,8 @@ O front-end deve ser construído utilizando qualquer framework JavaScript de sua
 
 ## O que será avaliado
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b3eb1e138a964385815c5fe5c8f3500a)](https://app.codacy.com/manual/freonzx/VUTTR-frontend?utm_source=github.com&utm_medium=referral&utm_content=freonzx/VUTTR-frontend&utm_campaign=Badge_Grade_Dashboard)
+
 Queremos avaliar sua capacidade de desenvolver e documentar um front-end para uma aplicação com back-end pronto. Serão avaliados:
 
 - Código bem escrito e limpo;
